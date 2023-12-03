@@ -1,0 +1,6 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://bg5te10ulqbo"]
+
+[resource]
+resource_name = "TubeMaterial"
+metallic = 0.85
+roughness = 0.6

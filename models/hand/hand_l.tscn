@@ -1,0 +1,33 @@
+[gd_scene load_steps=3 format=3 uid="uid://bnsjbb5uw7s57"]
+
+[ext_resource type="PackedScene" uid="uid://bhwcn4wgoq17g" path="res://models/hand/hand_l.glb" id="1_vklxc"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_n3r86"]
+cull_mode = 2
+albedo_color = Color(0.952941, 0.952941, 0.952941, 1)
+metallic = 0.3
+roughness = 0.7
+
+[node name="hand_l" instance=ExtResource("1_vklxc")]
+
+[node name="Skeleton3D" parent="Armature" index="0"]
+bones/2/rotation = Quaternion(-0.278012, 0.0149185, 0.0126671, 0.960378)
+bones/3/rotation = Quaternion(-0.0538373, 0.0001676, 0.0159712, 0.998422)
+bones/4/rotation = Quaternion(0.020565, -0.0017332, 0.0970411, 0.995066)
+bones/6/rotation = Quaternion(-0.133975, -0.00352463, 0.0562016, 0.989384)
+bones/7/rotation = Quaternion(-0.00658014, 0.000441788, 0.0652171, 0.997849)
+bones/8/rotation = Quaternion(-0.0419707, 0.00427959, 0.0359907, 0.998461)
+bones/10/rotation = Quaternion(0.00170055, -0.00140268, 0.109636, 0.993969)
+bones/11/rotation = Quaternion(0.00123186, -0.00028802, -0.013495, 0.999908)
+bones/12/rotation = Quaternion(-0.00990188, -0.00227125, 0.0833972, 0.996465)
+bones/14/rotation = Quaternion(0.170464, 0.033898, -0.0467854, 0.983669)
+bones/15/rotation = Quaternion(0.0388252, 0.00155798, 0.134719, 0.990122)
+bones/16/rotation = Quaternion(-0.0304057, 0.00370339, 0.0291243, 0.999106)
+bones/18/rotation = Quaternion(0.15945, 0.00187781, 0.0808253, 0.98389)
+bones/20/rotation = Quaternion(0.0272808, -0.00856, 0.0836724, 0.996083)
+
+[node name="Cube_014" parent="Armature/Skeleton3D" index="0"]
+material_override = SubResource("StandardMaterial3D_n3r86")
+
+[node name="AnimationPlayer" parent="." index="1"]
+speed_scale = 2.5

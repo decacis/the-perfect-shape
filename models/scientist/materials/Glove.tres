@@ -1,0 +1,5 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://chno0gqlyo17l"]
+
+[resource]
+resource_name = "Glove"
+albedo_color = Color(0.172549, 1, 1, 1)

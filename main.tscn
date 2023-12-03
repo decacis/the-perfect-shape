@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://cmxx18ux5ihxf"]
+
+[ext_resource type="PackedScene" uid="uid://dmfkbekjje7dv" path="res://scenes/player/player.tscn" id="1_d4lf3"]
+[ext_resource type="Script" path="res://main.gd" id="1_v0iul"]
+
+[node name="Main" type="Node3D" node_paths=PackedStringArray("player_ref", "current_scene_parent")]
+script = ExtResource("1_v0iul")
+player_ref = NodePath("XROrigin3D")
+current_scene_parent = NodePath("CurrentScene")
+
+[node name="XROrigin3D" parent="." instance=ExtResource("1_d4lf3")]
+
+[node name="CurrentScene" type="Node3D" parent="."]

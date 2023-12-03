@@ -1,0 +1,7 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://caqn8o8lecal1"]
+
+[ext_resource type="Texture2D" uid="uid://dasqy7ayeevmu" path="res://models/scientist/scientist/scientist_Top_diffuse.png" id="1_t3pkr"]
+
+[resource]
+resource_name = "Top"
+albedo_texture = ExtResource("1_t3pkr")

@@ -1,0 +1,51 @@
+<?xml version="1.0" standalone="no" ?>
+<!DOCTYPE project PUBLIC "-//audacityproject-1.3.0//DTD//EN" "http://audacity.sourceforge.net/xml/audacityproject-1.3.0.dtd" >
+<project xmlns="http://audacity.sourceforge.net/xml/" projname="lever_move_data" version="1.3.0" audacityversion="2.4.2" sel0="0.0000000000" sel1="0.3064625850" vpos="0" h="0.0000000000" zoom="127.2634927336" rate="44100.0" snapto="off" selectionformat="hh:mm:ss + milliseconds" frequencyformat="Hz" bandwidthformat="octaves">
+	<tags/>
+	<wavetrack name="403560__lamamakesmusic__lever_small_on_off" isSelected="0" height="150" minimized="0" channel="2" linked="0" mute="1" solo="0" rate="44100" gain="1.0" pan="0.0" colorindex="0">
+		<waveclip offset="0.00000000" colorindex="0">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="606419">
+				<waveblock start="0">
+					<simpleblockfile filename="e08086b5.au" len="262144" min="-1.345544" max="1.218265" rms="0.033766"/>
+				</waveblock>
+				<waveblock start="262144">
+					<simpleblockfile filename="e08083ea.au" len="262144" min="-1.259622" max="1.363613" rms="0.044773"/>
+				</waveblock>
+				<waveblock start="524288">
+					<simpleblockfile filename="e080862b.au" len="82131" min="-1.017957" max="0.819701" rms="0.021364"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+	</wavetrack>
+	<wavetrack name="403560__lamamakesmusic__lever_small_on_off" isSelected="0" height="150" minimized="0" channel="2" linked="0" mute="1" solo="0" rate="44100" gain="1.0" pan="0.0" colorindex="0">
+		<waveclip offset="0.00000000" colorindex="0">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="16980">
+				<waveblock start="0">
+					<simpleblockfile filename="e080832b.au" len="16980" min="-1.017957" max="0.819701" rms="0.046827"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+	</wavetrack>
+	<wavetrack name="403560__lamamakesmusic__lever_small_on_off" isSelected="0" height="150" minimized="0" channel="2" linked="0" mute="1" solo="0" rate="44100" gain="1.0" pan="0.0" colorindex="0">
+		<waveclip offset="0.00000000" colorindex="0">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="13168">
+				<waveblock start="0">
+					<simpleblockfile filename="e0808cb0.au" len="13168" min="-0.899429" max="0.612532" rms="0.046866"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+	</wavetrack>
+	<wavetrack name="403560__lamamakesmusic__lever_small_on_off" isSelected="1" height="150" minimized="0" channel="2" linked="0" mute="0" solo="1" rate="44100" gain="1.0" pan="0.0" colorindex="0">
+		<waveclip offset="0.00000000" colorindex="0">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="13515">
+				<waveblock start="0">
+					<simpleblockfile filename="e0808d40.au" len="13515" min="-0.98675" max="0.883484" rms="0.04911"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+	</wavetrack>
+</project>

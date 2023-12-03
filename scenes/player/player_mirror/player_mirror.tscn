@@ -1,0 +1,36 @@
+[gd_scene load_steps=4 format=3 uid="uid://ex6iiurskul8"]
+
+[ext_resource type="Script" path="res://scenes/player/player_mirror/player_mirror.gd" id="1_14p6g"]
+
+[sub_resource type="TorusMesh" id="TorusMesh_4qjrc"]
+inner_radius = 0.08
+outer_radius = 0.1
+
+[sub_resource type="TorusMesh" id="TorusMesh_meqt5"]
+inner_radius = 0.16
+outer_radius = 0.2
+
+[node name="player_mirror" type="Node3D" node_paths=PackedStringArray("left_controller", "right_controller", "camera")]
+script = ExtResource("1_14p6g")
+left_controller = NodePath("left_hand")
+right_controller = NodePath("right_hand")
+camera = NodePath("hmd")
+
+[node name="left_hand" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 1, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="left_hand"]
+mesh = SubResource("TorusMesh_4qjrc")
+
+[node name="right_hand" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 1, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="right_hand"]
+mesh = SubResource("TorusMesh_4qjrc")
+
+[node name="hmd" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="hmd"]
+transform = Transform3D(1.91069e-15, -4.37114e-08, -1, -1, -4.37114e-08, 0, -4.37114e-08, 1, -4.37114e-08, 0, 0, 0)
+mesh = SubResource("TorusMesh_meqt5")

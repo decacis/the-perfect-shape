@@ -1,0 +1,33 @@
+[gd_resource type="ShaderMaterial" load_steps=6 format=3 uid="uid://b36tsai72dlrq"]
+
+[ext_resource type="Shader" path="res://shaders/vapor.gdshader" id="1_x615t"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_l7pyp"]
+seed = 6
+frequency = 0.005
+fractal_weighted_strength = 0.1
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_yvw2u"]
+seamless = true
+seamless_blend_skirt = 0.3
+noise = SubResource("FastNoiseLite_l7pyp")
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_ucin5"]
+noise_type = 4
+seed = 539
+frequency = 0.005
+cellular_distance_function = 1
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_iumxq"]
+seamless = true
+seamless_blend_skirt = 0.3
+noise = SubResource("FastNoiseLite_ucin5")
+
+[resource]
+render_priority = -1
+shader = ExtResource("1_x615t")
+shader_parameter/vapor_speed = 0.3
+shader_parameter/distortionVertex = 0.03
+shader_parameter/speedVertex = 0.3
+shader_parameter/noise_texture = SubResource("NoiseTexture2D_iumxq")
+shader_parameter/noiseVertex = SubResource("NoiseTexture2D_yvw2u")

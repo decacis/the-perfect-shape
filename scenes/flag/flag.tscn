@@ -1,0 +1,49 @@
+[gd_scene load_steps=6 format=3 uid="uid://bb5caw1p3si15"]
+
+[ext_resource type="Script" path="res://scenes/flag/flag.gd" id="1_2go40"]
+[ext_resource type="Material" uid="uid://d3vkm7yv1dgd2" path="res://materials/flag_mat.tres" id="1_smjnm"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_hoefl"]
+top_radius = 0.005
+bottom_radius = 0.005
+height = 0.4
+radial_segments = 8
+
+[sub_resource type="QuadMesh" id="QuadMesh_wr3s5"]
+material = ExtResource("1_smjnm")
+size = Vector2(0.25, 0.18)
+subdivide_width = 6
+subdivide_depth = 3
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_pysb0"]
+size = Vector3(0.012, 0.403, 0.012)
+
+[node name="FlagItem" type="Node3D"]
+
+[node name="Flag" type="RigidBody3D" parent="."]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
+collision_layer = 2
+collision_mask = 3
+center_of_mass_mode = 1
+freeze = true
+script = ExtResource("1_2go40")
+metadata/grabbable_type = 1
+metadata/remote_options = {
+"position": true,
+"rotation": true,
+"scale": false
+}
+
+[node name="Mesh" type="Node3D" parent="Flag"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.199875, 0)
+
+[node name="Pole" type="MeshInstance3D" parent="Flag/Mesh"]
+mesh = SubResource("CylinderMesh_hoefl")
+
+[node name="Flag" type="MeshInstance3D" parent="Flag/Mesh"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0.109185, -0.129997)
+mesh = SubResource("QuadMesh_wr3s5")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Flag"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.199875, 0)
+shape = SubResource("BoxShape3D_pysb0")

@@ -1,0 +1,18 @@
+[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://d3vkm7yv1dgd2"]
+
+[ext_resource type="Shader" path="res://shaders/flag.gdshader" id="1_g4afo"]
+[ext_resource type="Texture2D" uid="uid://b84saxq376rcs" path="res://materials/textures/flag_1k.png" id="2_wr6dv"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_g4afo")
+shader_parameter/speed = 2.0
+shader_parameter/frequency_y = 4.0
+shader_parameter/frequency_x = 2.5
+shader_parameter/frequency_z = 2.5
+shader_parameter/amplitude_y = 0.01
+shader_parameter/amplitude_x = 0.01
+shader_parameter/amplitude_z = 0.01
+shader_parameter/inclination = 0.0
+shader_parameter/uv_offset = Vector2(0, 0)
+shader_parameter/tex = ExtResource("2_wr6dv")

@@ -1,0 +1,104 @@
+[gd_scene load_steps=10 format=3 uid="uid://dmfkbekjje7dv"]
+
+[ext_resource type="Script" path="res://scenes/player/player.gd" id="1_ylkh2"]
+[ext_resource type="Material" uid="uid://1bx2il34u8gh" path="res://scenes/player/materials/fade_out_screen.material" id="2_6fq0i"]
+[ext_resource type="Texture2D" uid="uid://b8el044aprcu8" path="res://other_assets/logo/logo_inverted_1024x1024.png" id="3_35d48"]
+[ext_resource type="PackedScene" uid="uid://bnsjbb5uw7s57" path="res://models/hand/hand_l.tscn" id="3_58hh3"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_783ly"]
+size = Vector2(2, 2)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qn4nb"]
+render_priority = 12
+transparency = 1
+shading_mode = 0
+albedo_texture = ExtResource("3_35d48")
+
+[sub_resource type="QuadMesh" id="QuadMesh_0tvfe"]
+material = SubResource("StandardMaterial3D_qn4nb")
+
+[sub_resource type="SphereMesh" id="SphereMesh_4qfi8"]
+radius = 0.05
+height = 0.1
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_m780y"]
+radius = 0.1
+
+[node name="XROrigin3D" type="XROrigin3D" node_paths=PackedStringArray("left_controller", "right_controller", "camera", "fade_out_screen", "right_grab_area", "left_grab_area", "start_lbl", "logo_mesh", "left_hand_mesh_p", "right_hand_mesh_p")]
+current = true
+script = ExtResource("1_ylkh2")
+left_controller = NodePath("LeftController")
+right_controller = NodePath("RightController")
+camera = NodePath("XRCamera3D")
+fade_out_screen = NodePath("XRCamera3D/FadeOutScreen")
+right_grab_area = NodePath("RightController/GrabArea")
+left_grab_area = NodePath("LeftController/GrabArea")
+start_lbl = NodePath("XRCamera3D/FadeOutScreen/Label3D")
+logo_mesh = NodePath("XRCamera3D/FadeOutScreen/Logo")
+left_hand_mesh_p = NodePath("LeftController/hand_l")
+right_hand_mesh_p = NodePath("RightController/hand_r")
+
+[node name="XRCamera3D" type="XRCamera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+
+[node name="FadeOutScreen" type="MeshInstance3D" parent="XRCamera3D"]
+material_override = ExtResource("2_6fq0i")
+cast_shadow = 0
+extra_cull_margin = 16384.0
+ignore_occlusion_culling = true
+mesh = SubResource("QuadMesh_783ly")
+
+[node name="Label3D" type="Label3D" parent="XRCamera3D/FadeOutScreen"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.908036, -3)
+pixel_size = 0.001
+double_sided = false
+no_depth_test = true
+render_priority = 12
+outline_render_priority = 11
+text = "PRESS TRIGGER OR GRAB
+TO START"
+font_size = 100
+outline_size = 24
+uppercase = true
+
+[node name="Logo" type="MeshInstance3D" parent="XRCamera3D/FadeOutScreen"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.203565, -3.1826)
+mesh = SubResource("QuadMesh_0tvfe")
+
+[node name="LeftController" type="XRController3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 1, 0)
+tracker = &"left_hand"
+pose = &"aim"
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="LeftController"]
+visible = false
+mesh = SubResource("SphereMesh_4qfi8")
+
+[node name="GrabArea" type="Area3D" parent="LeftController"]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="LeftController/GrabArea"]
+shape = SubResource("SphereShape3D_m780y")
+
+[node name="hand_l" parent="LeftController" instance=ExtResource("3_58hh3")]
+transform = Transform3D(-0.05, 4.37114e-09, -1.91069e-16, 0, -2.18557e-09, -0.05, -4.37114e-09, -0.05, 2.18557e-09, 0, -0.00773203, 0.10362)
+
+[node name="RightController" type="XRController3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 1, 0)
+tracker = &"right_hand"
+pose = &"aim"
+
+[node name="GrabArea" type="Area3D" parent="RightController"]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RightController/GrabArea"]
+shape = SubResource("SphereShape3D_m780y")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="RightController"]
+visible = false
+mesh = SubResource("SphereMesh_4qfi8")
+
+[node name="hand_r" parent="RightController" instance=ExtResource("3_58hh3")]
+transform = Transform3D(0.05, 7.54979e-09, -3.30012e-16, 0, -2.18557e-09, -0.05, 7.54979e-09, -0.05, 2.18557e-09, 0, -0.00773203, 0.10362)
